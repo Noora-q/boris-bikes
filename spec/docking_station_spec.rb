@@ -1,7 +1,5 @@
 require 'docking_station'
 
 describe DockingStation do
-  # it 'returns "Bike released" when there is a bike' do
-  #   expect(docking_station()).eq to 'Bike released'
-  # end
+  it { is_expected.to respond_to :release_bike }
 end
