@@ -9,7 +9,7 @@ class DockingStation
   attr_reader :bikes
 
   def release_bike
-    fail 'No bikes available' unless !@bikes.empty?
+    fail 'No bikes available' if @bikes.empty?
     chosen = @bikes.sample
     # puts "Pre-delete. Bikes = #{@bikes}, Chosen Bike = #{chosen}"
     @bikes.delete(chosen)
@@ -18,7 +18,7 @@ class DockingStation
   end
 
   def dock(bike)
-    fail 'Docking station occupied' unless @bikes.empty?
+    fail 'Docking station occupied' if @bikes.count >= 20
     @bikes << bike
     # puts "bikes array post docking: #{@bikes}"
     bike
