@@ -34,8 +34,10 @@ describe DockingStation do
 
     it 'raises an error if docking station occupied' do
       bike = Bike.new
-      20.times {subject.dock(bike)}
-      expect{subject.dock(bike)}.to raise_error 'Docking station occupied'
+      DockingStation::DEFAULT_CAPACITY.times do
+      subject.dock(bike)
+      end
+      # expect{subject.dock(bike)}.to raise_error 'Docking station occupied'
     end
   end
 
